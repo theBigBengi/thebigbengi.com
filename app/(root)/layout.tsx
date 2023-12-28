@@ -17,9 +17,9 @@ interface ExamplesLayoutProps {
 
 export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
   return (
-    <div className='bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0'>
+    <div className='relative flex min-h-screen flex-col  bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0'>
       <SiteHeader />
-      <section className='container'>{children}</section>
+      <main className='flex-1'>{children}</main>
       <SiteFooter />
     </div>
   );

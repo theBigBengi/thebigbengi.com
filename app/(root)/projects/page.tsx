@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 // import { allProjects } from "contentlayer/generated";
-
+import Balance from "react-wrap-balancer";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import { Card } from "@/components/card";
@@ -9,7 +9,7 @@ import { Article } from "./article";
 
 const redis = Redis.fromEnv();
 
-const allProjects = [
+export const allProjects = [
   {
     slug: "unkey",
     title: "unkey",
@@ -22,21 +22,24 @@ const allProjects = [
     title: "planetfall",
     published: true,
     date: new Date(),
-    description: "description",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
     slug: "highstorm",
     title: "highstorm",
     published: true,
     date: new Date(),
-    description: "description",
+    description:
+      "diculus mus. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Consectetur libero id faucibus nisl. Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque",
   },
   {
     slug: "unkey1",
     title: "unkey",
     published: true,
     date: new Date(),
-    description: "description",
+    description:
+      "c. Euismod lacinia at quis risus sed vulputate odio. Amet aliquam id diam maecenas ultricies mi eget. At risus viverra adipiscing at in tellus integer feugiat scelerisque. Magnis d",
   },
   {
     slug: "planetfall2",
@@ -50,7 +53,8 @@ const allProjects = [
     title: "highstorm",
     published: true,
     date: new Date(),
-    description: "description",
+    description:
+      "ue dignissim enim sit amet venenatis urna. Rutrum quisque non tellus orci ac. Egestas dui id ornare ar",
   },
   {
     slug: "unkey3",
@@ -125,16 +129,18 @@ export default async function ProjectsPage() {
     );
 
   return (
-    <>
+    <div className='container relative'>
       {/* <Navigation /> */}
       <div className='pt-20  space-y-8  md:space-y-16 md:pt-24 lg:pt-32'>
-        <div className='max-w-2xl mx-auto lg:mx-0'>
-          <h2 className='text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl'>
+        <div className='text-center mx-auto lg:mx-0'>
+          <h2 className='  md:text-6xl font-bold tracking-tight text-zinc-100 text-4xl'>
             Projects
           </h2>
-          <p className='mt-4 text-zinc-400'>
-            Some of the projects are from work and some are on my own time.
-          </p>
+          <Balance className='max-w-[750px] text-center text-lg text-muted-foreground sm:text-xl'>
+            <p className='mt-4 text-zinc-400'>
+              Some of the projects are from work and some are on my own time.
+            </p>
+          </Balance>
         </div>
         <div className='w-full h-px bg-zinc-800' />
 
@@ -220,6 +226,6 @@ export default async function ProjectsPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
