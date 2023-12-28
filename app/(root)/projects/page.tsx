@@ -9,7 +9,7 @@ import { Article } from "./article";
 
 const redis = Redis.fromEnv();
 
-export const allProjects = [
+const allProjects = [
   {
     slug: "unkey",
     title: "unkey",
