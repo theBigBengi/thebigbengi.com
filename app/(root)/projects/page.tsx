@@ -131,16 +131,14 @@ export default async function ProjectsPage() {
   return (
     <div className='container relative'>
       {/* <Navigation /> */}
-      <div className='pt-20  space-y-8  md:space-y-16 md:pt-24 lg:pt-32'>
-        <div className='text-center mx-auto lg:mx-0'>
+      <div className='space-y-8  md:space-y-16 '>
+        <div className=' mx-auto lg:mx-0'>
           <h2 className='  md:text-6xl font-bold tracking-tight text-zinc-100 text-4xl'>
             Projects
           </h2>
-          <Balance className='max-w-[750px] text-center text-lg text-muted-foreground sm:text-xl'>
-            <p className='mt-4 text-zinc-400'>
-              Some of the projects are from work and some are on my own time.
-            </p>
-          </Balance>
+          <p className='mt-4 text-zinc-400 text-lg'>
+            Some of the projects are from work and some are on my own time.
+          </p>
         </div>
         <div className='w-full h-px bg-zinc-800' />
 

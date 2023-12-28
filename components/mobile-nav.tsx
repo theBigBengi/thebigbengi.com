@@ -12,98 +12,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { linksConfig } from "@/config/links";
 import { ScrollArea } from "./ui/scroll-area";
-import { SidebarNavItem } from "@/types/nav";
-
-const allProjects = [
-  {
-    slug: "unkey",
-    title: "unkey",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-  {
-    slug: "planetfall",
-    title: "planetfall",
-    published: true,
-    date: new Date(),
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    slug: "highstorm",
-    title: "highstorm",
-    published: true,
-    date: new Date(),
-    description:
-      "diculus mus. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Consectetur libero id faucibus nisl. Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque",
-  },
-  {
-    slug: "unkey1",
-    title: "unkey",
-    published: true,
-    date: new Date(),
-    description:
-      "c. Euismod lacinia at quis risus sed vulputate odio. Amet aliquam id diam maecenas ultricies mi eget. At risus viverra adipiscing at in tellus integer feugiat scelerisque. Magnis d",
-  },
-  {
-    slug: "planetfall2",
-    title: "planetfall",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-  {
-    slug: "highstorm3",
-    title: "highstorm",
-    published: true,
-    date: new Date(),
-    description:
-      "ue dignissim enim sit amet venenatis urna. Rutrum quisque non tellus orci ac. Egestas dui id ornare ar",
-  },
-  {
-    slug: "unkey3",
-    title: "unkey",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-  {
-    slug: "planetfall3",
-    title: "planetfall",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-  {
-    slug: "highstorme",
-    title: "highstorm",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-  {
-    slug: "unkeye",
-    title: "unkey",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-  {
-    slug: "planetfall3e",
-    title: "planetfalle",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-  {
-    slug: "highstormee",
-    title: "highstorm",
-    published: true,
-    date: new Date(),
-    description: "description",
-  },
-];
+import { projectsConfig } from "@/config/projects";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
@@ -153,11 +62,12 @@ export function MobileNav() {
           className='flex items-center'
           onOpenChange={setOpen}
         >
+          <Icons.logo className='mr-2 h-4 w-4' />
           <span className='font-bold'>{siteConfig.name}</span>
         </MobileLink>
         <ScrollArea className='my-4 h-[calc(100vh-8rem)] pb-10 pl-6'>
           <div className='flex flex-col space-y-3'>
-            {linksConfig.mainNav?.map(
+            {projectsConfig.mainNav?.map(
               (item) =>
                 item.href && (
                   <MobileLink
@@ -171,19 +81,7 @@ export function MobileNav() {
             )}
           </div>
           <div className='flex flex-col space-y-2'>
-            {(
-              [
-                {
-                  title: "Projects",
-                  items: allProjects.map((p) => ({
-                    // label: p.title,
-                    title: p.title,
-                    href: `/projects/${p.slug}`,
-                    disabled: false,
-                  })),
-                },
-              ] as SidebarNavItem[]
-            ).map((item, index) => (
+            {projectsConfig.sidebarNav.map((item, index) => (
               <div key={index} className='flex flex-col space-y-3 pt-6'>
                 <h4 className='font-medium'>{item.title}</h4>
                 {item?.items?.length &&
@@ -212,6 +110,8 @@ export function MobileNav() {
             ))}
           </div>
         </ScrollArea>
+
+        <span className='font-bold'>{siteConfig.name}</span>
       </SheetContent>
     </Sheet>
   );
