@@ -12,6 +12,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { linksConfig } from "@/config/links";
 import { ScrollArea } from "./ui/scroll-area";
+import { SidebarNavItem } from "@/types/nav";
 
 const allProjects = [
   {
@@ -170,17 +171,19 @@ export function MobileNav() {
             )}
           </div>
           <div className='flex flex-col space-y-2'>
-            {[
-              {
-                title: "Projects",
-                items: allProjects.map((p) => ({
-                  // label: p.title,
-                  title: p.title,
-                  href: `/projects/${p.slug}`,
-                  disabled: false,
-                })),
-              },
-            ].map((item, index) => (
+            {(
+              [
+                {
+                  title: "Projects",
+                  items: allProjects.map((p) => ({
+                    // label: p.title,
+                    title: p.title,
+                    href: `/projects/${p.slug}`,
+                    disabled: false,
+                  })),
+                },
+              ] as SidebarNavItem[]
+            ).map((item, index) => (
               <div key={index} className='flex flex-col space-y-3 pt-6'>
                 <h4 className='font-medium'>{item.title}</h4>
                 {item?.items?.length &&
