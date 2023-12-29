@@ -18,7 +18,7 @@ export const projectsConfig: ProjectsConfig = {
   ],
   sidebarNav: [
     {
-      title: "Explorer",
+      title: "Projects",
       items: [
         {
           title: "thebigbengi",

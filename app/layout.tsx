@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={cn(
           `${GeistSans.variable} ${GeistMono.variable}`,
-          "min-h-screen font-sans antialiased bg-black"
+          "min-h-screen font-sans antialiased bg-background"
         )}
       >
         <ThemeProvider
