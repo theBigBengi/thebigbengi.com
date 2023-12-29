@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 // import { allDocs } from "contentlayer/generated"
 
-// import "@/styles/mdx.css";
+import "@/styles/mdx.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
@@ -13,6 +13,7 @@ import { absoluteUrl, cn } from "@/lib/utils";
 // import { Mdx } from "@/components/mdx-components"
 import { ProjectsPager } from "@/components/pager";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { badgeVariants } from "@/components/ui/badge";
 // import { DashboardTableOfContents } from "@/components/toc"
 
 interface DocPageProps {
@@ -86,23 +87,63 @@ export default async function DocPage({ params }: DocPageProps) {
   //   const toc = await getTableOfContents(doc.body.raw)
 
   return (
-    <div className='container relative'>
+    <main className='relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]'>
       <div className='mx-auto w-full min-w-0'>
         <div className='mb-4 flex items-center space-x-1 text-sm text-muted-foreground'>
           <div className='overflow-hidden text-ellipsis whitespace-nowrap'>
-            Docs
+            Projects
           </div>
           <ChevronRightIcon className='h-4 w-4' />
-          <div className='font-medium text-foreground'>doctitle</div>
+          <div className='font-medium text-foreground'>
+            {/* {doc.title} */}
+            title
+          </div>
         </div>
         <div className='space-y-2'>
           <h1 className={cn("scroll-m-20 text-4xl font-bold tracking-tight")}>
-            doctitle
+            {/* {doc.title} */}
+            title
           </h1>
-          <p className='text-lg text-muted-foreground'>description</p>
+          description
+          {/* {doc.description && (
+            <p className="text-lg text-muted-foreground">
+              <Balancer>{doc.description}</Balancer>
+            </p>
+          )} */}
         </div>
-
-        <div className='pb-12 pt-8'>{/* <Mdx code={doc.body.code} /> */}</div>
+        <div className='flex items-center space-x-2 pt-4'></div>
+        {/* {doc.links ? (
+          <div className="flex items-center space-x-2 pt-4">
+            {doc.links?.doc && (
+              <Link
+                href={doc.links.doc}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
+              >
+                Docs
+                <ExternalLinkIcon className="h-3 w-3" />
+              </Link>
+            )}
+            {doc.links?.api && (
+              <Link
+                href={doc.links.api}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
+              >
+                API Reference
+                <ExternalLinkIcon className="h-3 w-3" />
+              </Link>
+            )}
+          </div>
+        ) : null} */}
+        <div className='pb-12 pt-8'>
+          <div className='mdx'>
+            mdx
+            {/* <Mdx code={doc.body.code} /> */}
+          </div>
+        </div>
         <ProjectsPager
           project={{
             title: "quill",
@@ -110,6 +151,18 @@ export default async function DocPage({ params }: DocPageProps) {
           }}
         />
       </div>
-    </div>
+      {/* {doc.toc && ( */}
+      <div className='hidden text-sm xl:block'>
+        <div className='sticky top-16 -mt-10 pt-4'>
+          <ScrollArea className='pb-10'>
+            <div className='sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12'>
+              toc
+              {/* <DashboardTableOfContents toc={toc} /> */}
+            </div>
+          </ScrollArea>
+        </div>
+      </div>
+      {/* )} */}
+    </main>
   );
 }

@@ -6,6 +6,16 @@ import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import { Card } from "@/components/card";
 import { Article } from "./article";
+import {
+  PageActions,
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { Icons } from "@/components/icons";
+import { Separator } from "@/components/ui/separator";
 
 const redis = Redis.fromEnv();
 
@@ -132,15 +142,37 @@ export default async function ProjectsPage() {
     <div className='container relative'>
       {/* <Navigation /> */}
       <div className='space-y-8  md:space-y-16 '>
-        <div className=' mx-auto lg:mx-0'>
+        {/* <div className=' mx-auto lg:mx-0'>
           <h2 className='  md:text-6xl font-bold tracking-tight text-zinc-100 text-4xl'>
             Projects
           </h2>
           <p className='mt-4 text-zinc-400 text-lg'>
             Some of the projects are from work and some are on my own time.
           </p>
-        </div>
-        <div className='w-full h-px bg-zinc-800' />
+        </div> */}
+        <PageHeader>
+          {/* <Announcement /> */}
+          <PageHeaderHeading>Projects</PageHeaderHeading>
+          <PageHeaderDescription>
+            Beautifully designed components that you can copy and paste into
+            your apps. Accessible. Customizable. Open Source.
+          </PageHeaderDescription>
+          {/* <PageActions>
+            <Link href='/docs' className={cn(buttonVariants())}>
+              Get Started
+            </Link>
+            <Link
+              target='_blank'
+              rel='noreferrer'
+              href={"siteConfig.links.github"}
+              className={cn(buttonVariants({ variant: "outline" }))}
+            >
+              <Icons.gitHub className='mr-2 h-4 w-4' />
+              GitHub
+            </Link>
+          </PageActions> */}
+        </PageHeader>
+        {/* <div className='w-full h-px bg-zinc-800' /> */}
 
         <div className='grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 '>
           <Card>
@@ -192,7 +224,8 @@ export default async function ProjectsPage() {
             ))}
           </div>
         </div>
-        <div className='hidden w-full h-px md:block bg-zinc-800' />
+
+        <Separator />
 
         <div className='grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3'>
           <div className='grid grid-cols-1 gap-4'>

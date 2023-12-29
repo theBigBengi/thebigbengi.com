@@ -1,5 +1,10 @@
 "use client";
 import { Card } from "@/components/card";
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header";
 import { Github, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 
@@ -26,9 +31,16 @@ const socials = [
 
 export default function Example() {
   return (
-    <div className='container relative flex-1'>
-      {/* <Navigation /> */}
-      <div className=' flex items-center justify-center h-full px-4 mx-auto'>
+    <div className='container relative'>
+      <PageHeader>
+        <PageHeaderHeading>Contact</PageHeaderHeading>
+        <PageHeaderDescription>
+          Beautifully designed components that you can copy and paste into your
+          apps. Accessible. Customizable. Open Source.
+        </PageHeaderDescription>
+      </PageHeader>
+
+      <div className=' flex items-center justify-center h-full'>
         <div className='grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16'>
           {socials.map((s) => (
             <Card key={s.href}>

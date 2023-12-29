@@ -19,9 +19,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
   return (
     <div className='relative flex min-h-screen flex-col   bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0'>
       <SiteHeader />
-      <main className='flex-1 flex gap-2 py-8 md:py-12 md:pb-8 lg:py-16 lg:pb-20'>
-        {children}
-      </main>
+      <main className='flex-1'>{children}</main>
       <SiteFooter />
     </div>
   );
