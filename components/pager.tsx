@@ -13,7 +13,6 @@ interface ProjectsPagerProps {
 
 export function ProjectsPager({ project }: ProjectsPagerProps) {
   const pager = getPagerForProject(project);
-  console.log(pager);
   if (!pager) {
     return null;
   }
@@ -52,9 +51,6 @@ export function getPagerForProject(project: any) {
     activeIndex !== flattenedLinks.length - 1
       ? flattenedLinks[activeIndex + 1]
       : null;
-
-  console.log(flattenedLinks[activeIndex - 1]);
-  console.log(flattenedLinks);
 
   return {
     prev,

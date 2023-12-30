@@ -62,7 +62,7 @@ export function MobileNav() {
           className='flex items-center'
           onOpenChange={setOpen}
         >
-          <Icons.logo className='mr-2 h-4 w-4' />
+          {/* <Icons.logo className='mr-2 h-4 w-4' /> */}
           <span className='font-bold'>{siteConfig.name}</span>
         </MobileLink>
         <ScrollArea className='my-4 h-[calc(100vh-8rem)] pb-10 pl-6'>
@@ -111,7 +111,7 @@ export function MobileNav() {
           </div>
         </ScrollArea>
 
-        <span className='font-bold'>{siteConfig.name}</span>
+        {/* <span className='font-bold'>{siteConfig.name}</span> */}
       </SheetContent>
     </Sheet>
   );

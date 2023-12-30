@@ -8,12 +8,20 @@ interface ProjectsConfig {
 export const projectsConfig: ProjectsConfig = {
   mainNav: [
     {
+      title: "About",
+      href: "/about",
+    },
+    {
       title: "Projects",
       href: "/projects",
     },
     {
       title: "Contact",
       href: "/contact",
+    },
+    {
+      title: "Github",
+      href: "https://github.com/theBigBengi",
     },
   ],
   sidebarNav: [

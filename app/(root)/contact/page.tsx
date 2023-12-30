@@ -1,4 +1,3 @@
-"use client";
 import { Card } from "@/components/card";
 import {
   PageHeader,
@@ -6,6 +5,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import { Github, Mail, Twitter } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 
 const socials = [
@@ -29,9 +29,14 @@ const socials = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Check out some examples app built using the components.",
+};
+
 export default function Example() {
   return (
-    <div className='container relative'>
+    <div className='container relative pb-12'>
       <div className='space-y-8  md:space-y-16 '>
         <PageHeader>
           <PageHeaderHeading>Contact</PageHeaderHeading>

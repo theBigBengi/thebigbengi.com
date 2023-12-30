@@ -1,12 +1,18 @@
 import { ProjectsSidebarNav } from "@/components/sidebar-nav";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { projectsConfig } from "@/config/projects";
+import { Metadata } from "next";
 
-interface DocsLayoutProps {
+export const metadata: Metadata = {
+  title: "Project",
+  description: "Check out some examples app built using the components.",
+};
+
+interface ProjectLayoutProps {
   children: React.ReactNode;
 }
 
-export default function DocsLayout({ children }: DocsLayoutProps) {
+export default function ProjectLayout({ children }: ProjectLayoutProps) {
   return (
     <div className='border-b'>
       <div className='container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10'>
