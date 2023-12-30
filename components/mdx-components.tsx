@@ -211,15 +211,15 @@ const components = {
   //     </StyleWrapper>
   //   )
   // },
-  pre: ({ className, ...props }) => (
-    <pre
-      className={clsx(
-        "mt-6 mb-4 overflow-x-auto rounded-lg bg-zinc-900 py-4",
-        className
-      )}
-      {...props}
-    />
-  ),
+  // pre: ({ className, ...props }) => (
+  //   <pre
+  //     className={clsx(
+  //       "mt-6 mb-4 overflow-x-auto rounded-lg bg-zinc-900 py-4",
+  //       className
+  //     )}
+  //     {...props}
+  //   />
+  // ),
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
