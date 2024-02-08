@@ -22,13 +22,13 @@ import { DashboardTableOfContents } from "@/components/toc";
 import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
 
-interface DocPageProps {
+interface ProjectPageProps {
   params: {
     slug: string[];
   };
 }
 
-async function getProjectFromParams({ params }: DocPageProps) {
+async function getProjectFromParams({ params }: ProjectPageProps) {
   const slug = params.slug?.join("/") || "";
   const project = allProjects.find((project) => project.slugAsParams === slug);
 
@@ -41,7 +41,7 @@ async function getProjectFromParams({ params }: DocPageProps) {
 
 export async function generateMetadata({
   params,
-}: DocPageProps): Promise<Metadata> {
+}: ProjectPageProps): Promise<Metadata> {
   const project = await getProjectFromParams({ params });
 
   if (!project) {
@@ -76,14 +76,14 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  DocPageProps["params"][]
+  ProjectPageProps["params"][]
 > {
   return allProjects.map((project) => ({
     slug: project.slugAsParams.split("/"),
   }));
 }
 
-export default async function DocPage({ params }: DocPageProps) {
+export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = await getProjectFromParams({ params });
 
   if (!project) {
@@ -94,7 +94,7 @@ export default async function DocPage({ params }: DocPageProps) {
 
   return (
     <main className='relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]'>
-      <div className='mx-auto w-full min-w-0'>
+      {/* <div className='mx-auto w-full min-w-0'>
         <div className='mb-4 flex items-center space-x-1 text-sm text-muted-foreground'>
           <div className='overflow-hidden text-ellipsis whitespace-nowrap'>
             Projects
@@ -146,7 +146,7 @@ export default async function DocPage({ params }: DocPageProps) {
           </div>
         </div>
         <ProjectsPager project={project} />
-      </div>
+      </div> */}
 
       {
         // Table of content

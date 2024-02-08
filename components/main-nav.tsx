@@ -14,6 +14,7 @@ export function MainNav() {
   return (
     <div className='mr-4 hidden md:flex'>
       <Link href='/' className='mr-6 flex items-center space-x-2'>
+        <Icons.logo className='h-6 w-6' />
         <span className='hidden font-bold sm:inline-block'>
           {siteConfig.name}
         </span>
@@ -28,7 +29,7 @@ export function MainNav() {
         >
           Projects
         </Link>
-        <Link
+        {/* <Link
           href='/about'
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -36,7 +37,7 @@ export function MainNav() {
           )}
         >
           About
-        </Link>
+        </Link> */}
         <Link
           href='/contact'
           className={cn(
@@ -46,7 +47,7 @@ export function MainNav() {
         >
           Contact
         </Link>
-        <Link
+        {/* <Link
           href='/github'
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -54,7 +55,7 @@ export function MainNav() {
           )}
         >
           Github
-        </Link>
+        </Link> */}
       </nav>
     </div>
   );
